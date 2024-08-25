@@ -1,4 +1,4 @@
-#B.Tech final project
+# B.Tech final project
 
 Inputs : Energy Per Atom, Total Energy, Energy above Hull
 
