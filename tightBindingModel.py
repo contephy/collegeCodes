@@ -2,21 +2,29 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d
 import numpy as np
 
-fig = plt.figure()
-ax = plt.axes(projection="3d")
+# User inputs
+a = float(input("Enter the value of lattice constant (e.g., 2.46 for Graphene): ")) 
+t = float(input("What is the nearest neighbour hopping energy (e.g., 2.8 eV for Graphene): "))
 
-a=float(input("Enter the value of lattice constant?")) #2.46 for Graphene
+# Generate kx, ky meshgrid
 kx = np.arange(-1, 1, 0.025)
 ky = np.arange(-1, 1, 0.025)
 kx, ky = np.meshgrid(kx, ky)
 
-t=float(input("What is the nearest neighbour hopping energy?")) #2.8 eV for Graphene
-z = t*(1+4*(np.cos((3/2)*kx*a))*(np.cos((1.732/2)*ky*a))+4*(np.cos((1.732/2)*ky*a)**2))**(0.5)
+# Calculate z values using vectorized computation
+cos_kx = np.cos((3/2) * kx * a)
+cos_ky = np.cos((np.sqrt(3)/2) * ky * a)
+z = t * np.sqrt(1 + 4 * cos_kx * cos_ky + 4 * cos_ky**2)
 
-Epos = ax.plot_surface(kx, ky, z, color='yellow')
+# Plotting
+fig = plt.figure()
+ax = plt.axes(projection="3d")
 
-Eneg = ax.plot_surface(kx, ky, -z, color='blue')
+# Use colormaps for better visualization
+ax.plot_surface(kx, ky, z, cmap='autumn')
+ax.plot_surface(kx, ky, -z, cmap='winter')
 
+# Set labels
 ax.set_xlabel('kx')
 ax.set_ylabel('ky')
 ax.set_zlabel('E(k)')
