@@ -36,7 +36,7 @@ model = Sequential([
     Dense(64, activation='relu'),
     Dropout(0.2),
     Dense(32, activation='relu'),
-    Dense(1, activation='linear')  # Use 'linear' for regression
+    Dense(1, activation='linear')  
 ])
 
 # Compile the model

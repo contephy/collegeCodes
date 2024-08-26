@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from scipy.special import hermite
 from scipy.constants import hbar, m, omega
 
-# Parameters
 x = np.linspace(-5, 5, 1000)
 n = 0  # quantum number
 
@@ -15,7 +14,6 @@ def psi_n(x, n):
 # Calculate wavefunction
 wavefunction = psi_n(x, n)
 
-# Plot results
 plt.plot(x, wavefunction**2)
 plt.xlabel('x')
 plt.ylabel(r'$\psi^2(x)$')
