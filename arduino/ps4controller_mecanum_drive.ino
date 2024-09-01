@@ -19,7 +19,7 @@ void setup() {
   pinMode(motorD1, OUTPUT);
   pinMode(motorD2, OUTPUT);
 
-  PS4.begin("xx:xx:xx:xx:xx:xx"); // Replace with your PS4 controller MAC address
+  PS4.begin("xx:xx:xx:xx:xx:xx");
   Serial.begin(115200);
 }
 
