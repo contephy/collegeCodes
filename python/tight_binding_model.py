@@ -11,7 +11,6 @@ kx = np.arange(-1, 1, 0.025)
 ky = np.arange(-1, 1, 0.025)
 kx, ky = np.meshgrid(kx, ky)
 
-# Calculate z values using vectorized computation
 cos_kx = np.cos((3/2) * kx * a)
 cos_ky = np.cos((np.sqrt(3)/2) * ky * a)
 z = t * np.sqrt(1 + 4 * cos_kx * cos_ky + 4 * cos_ky**2)
@@ -20,7 +19,6 @@ z = t * np.sqrt(1 + 4 * cos_kx * cos_ky + 4 * cos_ky**2)
 fig = plt.figure()
 ax = plt.axes(projection="3d")
 
-# Use colormaps for better visualization
 ax.plot_surface(kx, ky, z, cmap='autumn')
 ax.plot_surface(kx, ky, -z, cmap='winter')
 
